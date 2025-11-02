@@ -1,5 +1,5 @@
 from enum import Enum
-from random import randint
+from random import choice
 
 class RPSEnum(Enum):
     '''Rock Paper Scissors Enum'''
@@ -13,7 +13,9 @@ class RockPaperScissors:
     
     
     def __init__(self):
-        pass
+        self.choices = [RPSEnum.paper, RPSEnum.rock, RPSEnum.scissors]
+        
+        
 
     def get_user_input(self):
         corrct_values = ['rock', 'r', 'paper', 'p', 'scissors', 's']
@@ -33,8 +35,7 @@ class RockPaperScissors:
         
     
     def get_computer_choice(self):
-        random_int = randint(1,3)
-        return RPSEnum(random_int)
+        return choice(self.choices)
     
     
     def judge(self, user_choice, computer_choice):
