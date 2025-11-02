@@ -39,29 +39,15 @@ class RockPaperScissors:
     
     
     def judge(self, user_choice, computer_choice):
-        if user_choice is RPSEnum.rock:
-            if computer_choice is RPSEnum.rock:
-                return 0
-            elif computer_choice is RPSEnum.paper:
-                return -1
-            else:
-                return 1
         
-        elif user_choice is RPSEnum.paper:
-            if computer_choice is RPSEnum.paper:
-                return 0
-            elif computer_choice is RPSEnum.rock:
+        if user_choice is computer_choice:
+            return 0
+        
+        win_combinations = [(RPSEnum.rock, RPSEnum.scissors), (RPSEnum.paper, RPSEnum.rock), (RPSEnum.scissors, RPSEnum.paper)]
+        for win_comb in win_combinations:
+            if (user_choice is win_comb[0]) and (computer_choice is win_comb[1]):
                 return 1
-            else:
-                return -1
-            
-        elif user_choice is RPSEnum.scissors:
-            if computer_choice is RPSEnum.scissors:
-                return 0 
-            elif computer_choice is RPSEnum.rock:
-                return -1
-            else:
-                return 1
+        return -1
             
     
     def game(self):
@@ -70,7 +56,14 @@ class RockPaperScissors:
         result = self.judge(user_input, computer_input)
         
         messages = ['Tie :|', 'You Won :)', 'You lost :(']    
+        print('-------')
         print(messages[result])
         print('-------')
         print(f'your choice: {user_input.name}')
         print(f'computer choice: {computer_input.name}')    
+
+
+
+
+test = RockPaperScissors()
+test.game()
