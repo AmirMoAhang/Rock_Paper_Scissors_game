@@ -68,7 +68,7 @@ class RockPaperScissors:
         computer_input = self.get_computer_choice()
         result = self.judge(user_input, computer_input)
         
-        messages = ['Draw :|', 'You Win :)', 'You lose :(']    
+        messages = ['Tie :|', 'You Won :)', 'You lost :(']    
         print(messages[result])
         print('-------')
         print(f'your choice: {user_input.name}')
