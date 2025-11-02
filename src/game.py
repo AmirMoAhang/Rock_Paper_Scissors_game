@@ -50,7 +50,7 @@ class RockPaperScissors:
         return -1
             
     
-    def game(self):
+    def play(self):
         user_input = self.get_user_input()
         computer_input = self.get_computer_choice()
         result = self.judge(user_input, computer_input)
@@ -64,6 +64,12 @@ class RockPaperScissors:
 
 
 
+if __name__ == '__main__':
+    game = RockPaperScissors()
 
-test = RockPaperScissors()
-test.game()
+    while True:
+        game.play()
+        
+        continue_toplay = input('Play again? ([y]/n) :')
+        if continue_toplay == 'n':
+            break
