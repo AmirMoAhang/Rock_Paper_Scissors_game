@@ -9,7 +9,8 @@ class RPSEnum(Enum):
     
 
 class RockPaperScissors:
-    '''To run the game call game method'''
+    """Main class for Rock Paper Scissors game.
+    """
     
     
     def __init__(self):
@@ -17,7 +18,12 @@ class RockPaperScissors:
         
         
 
-    def get_user_input(self):
+    def get_user_input(self) -> RPSEnum:
+        """Get and validate user input.
+
+        Returns:
+            RPSEnum: Enum for choices
+        """
         corrct_values = ['rock', 'r', 'paper', 'p', 'scissors', 's']
         user_input = ''
         while True:
@@ -34,11 +40,25 @@ class RockPaperScissors:
             return RPSEnum.scissors
         
     
-    def get_computer_choice(self):
+    def get_computer_choice(self) -> RPSEnum:
+        """Use random method to get a choice from computer.
+
+        Returns:
+            RPSEnum:
+        """
         return choice(self.choices)
     
     
-    def judge(self, user_choice, computer_choice):
+    def judge(self, user_choice:RPSEnum, computer_choice:RPSEnum) -> int:
+        """Judge between user and computer choices
+
+        Args:
+            user_choice (RPSEnum): input that got from user
+            computer_choice (RPSEnum): choice that computer choose randomly
+
+        Returns:
+            int:it shows user win or lose : -1 -> loose   0 -> tie   1 -> win
+        """
         
         if user_choice is computer_choice:
             return 0
@@ -51,6 +71,12 @@ class RockPaperScissors:
             
     
     def play(self):
+        """run the game
+        - get user choice 
+        - get computer choice
+        - judge beween them
+        - show the result
+        """
         user_input = self.get_user_input()
         computer_input = self.get_computer_choice()
         result = self.judge(user_input, computer_input)
